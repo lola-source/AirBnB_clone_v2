@@ -99,5 +99,5 @@ TestBaseModel class:
 ```
 ## Authors
 Lola-source Adagala - [Github](https://github.com/lola-source)  
-Jennifer Huang - [Github](https://github.com/VictorBK)
+Victor Kanyanga - [Github](https://github.com/VictorBK)
 
