@@ -24,7 +24,7 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except:
+        except self:
             pass
 
     def test_default(self):
@@ -89,6 +89,7 @@ class test_basemodel(unittest.TestCase):
         """ """
         new = self.value()
         self.assertEqual(type(new.created_at), datetime.datetime)
+
 
 """     def test_updated_at(self):
         """ """
