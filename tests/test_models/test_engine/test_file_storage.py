@@ -43,19 +43,19 @@ class TestFileStorageDocs(unittest.TestCase):
         result = pep8s.check_files(['tests/test_models/test_engine/\
                                     test_file_storage.py'])
         self.assertEqual(result.total_errors, 0,
-                        "Found code style errors (and warnings).")
+                         "Found code style errors (and warnings).")
 
     def test_file_storage_module_docstring(self):
         """Test for the file_storage.py module docstring"""
         self.assertIsNot(file_storage.__doc__, None,
-                        "file_storage.py needs a docstring")
+                         "file_storage.py needs a docstring")
         self.assertTrue(len(file_storage.__doc__) >= 1,
                         "file_storage.py needs a docstring")
 
     def test_file_storage_class_docstring(self):
         """Test for the FileStorage class docstring"""
         self.assertIsNot(FileStorage.__doc__, None,
-                        "FileStorage class needs a docstring")
+                         "FileStorage class needs a docstring")
         self.assertTrue(len(FileStorage.__doc__) >= 1,
                         "FileStorage class needs a docstring")
 
@@ -63,7 +63,7 @@ class TestFileStorageDocs(unittest.TestCase):
         """Test for the presence of docstrings in FileStorage methods"""
         for func in self.fs_f:
             self.assertIsNot(func[1].__doc__, None,
-                            "{:s} method needs a docstring".format(func[0]))
+                             "{:s} method needs a docstring".format(func[0]))
             self.assertTrue(len(func[1].__doc__) >= 1,
                             "{:s} method needs a docstring".format(func[0]))
 
@@ -72,11 +72,11 @@ class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
     def test_all_returns_dict(self):
-    """Test that all returns the FileStorage.__objects attr"""
-    storage = FileStorage()
-    new_dict = storage.all()
-    self.assertEqual(type(new_dict), dict)
-    self.assertIs(new_dict, storage._FileStorage__objects)
+        """Test that all returns the FileStorage.__objects attr"""
+        storage = FileStorage()
+        new_dict = storage.all()
+        self.assertEqual(type(new_dict), dict)
+        self.assertIs(new_dict, storage._FileStorage__objects)
 
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
     def test_new(self):

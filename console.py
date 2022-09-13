@@ -14,7 +14,7 @@ from models.user import User
 import shlex  # for splitting the line along spaces except in double quotes
 
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-            "Place": Place, "Review": Review, "State": State, "User": User}
+           "Place": Place, "Review": Review, "State": State, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -22,37 +22,37 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_EOF(self, arg):
-    """Exits console"""
-    return True
+        """Exits console"""
+        return True
 
     def emptyline(self):
-    """ overwriting the emptyline method """
-    return False
+        """ overwriting the emptyline method """
+        return False
 
     def do_quit(self, arg):
-    """Quit command to exit the program"""
-    return True
+        """Quit command to exit the program"""
+        return True
 
     def _key_value_parser(self, args):
-    """creates a dictionary from a list of strings"""
-    new_dict = {}
-    for arg in args:
-        if "=" in arg:
-            kvp = arg.split('=', 1)
-            key = kvp[0]
-            value = kvp[1]
-            if value[0] == value[-1] == '"':
-                value = shlex.split(value)[0].replace('_', ' ')
-            else:
-                try:
-                    value = int(value)
-                except:
+        """creates a dictionary from a list of strings"""
+        new_dict = {}
+        for arg in args:
+            if "=" in arg:
+                kvp = arg.split('=', 1)
+                key = kvp[0]
+                value = kvp[1]
+                if value[0] == value[-1] == '"':
+                    value = shlex.split(value)[0].replace('_', ' ')
+                else:
                     try:
-                        value = float(value)
-                    except:
-                        continue
-            new_dict[key] = value
-    return new_dict
+                        value = int(value)
+                    except no.value:
+                        try:
+                            value = float(value)
+                        except value.exist:
+                            continue
+                new_dict[key] = value
+        return new_dict
 
     def do_create(self, arg):
         """Creates a new instance of a class"""
@@ -139,13 +139,14 @@ class HBNBCommand(cmd.Cmd):
                             if args[0] == "Place":
                                 if args[2] in integers:
                                     try:
+                                        A
                                         args[3] = int(args[3])
-                                    except:
+                                    except no.argd:
                                         args[3] = 0
                                 elif args[2] in floats:
                                     try:
                                         args[3] = float(args[3])
-                                except:
+                                except args.exists:
                                     args[3] = 0.0
                             setattr(models.storage.all()[k], args[2], args[3])
                             models.storage.all()[k].save()
@@ -159,6 +160,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
