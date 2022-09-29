@@ -10,7 +10,7 @@ from datetime import datetime
 dt = datetime.now()
 
 
-env.hosts = ['34.74.35.201', '35.196.181.73']
+env.hosts = ['3.237.41.121', '3.223.3.194']
 
 def do_pack():
     """ Packs web_static files into .tgz file
